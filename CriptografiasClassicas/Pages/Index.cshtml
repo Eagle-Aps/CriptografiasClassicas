@@ -1,0 +1,66 @@
+﻿@page
+@model IndexModel
+@using CriptografiasClassicas.Models
+
+<div class="container">
+
+    <h1>Criptografia Clássica</h1>
+
+    <p>
+        Escolha uma cifra, informe os dados necessários e execute
+        a criptografia ou descriptografia.
+    </p>
+
+    <form method="post">
+
+        <div class="campo">
+            <label for="cifra">Cifra</label>
+
+            <select asp-for="Criptografia.Cifra"
+                    asp-items="Html.GetEnumSelectList<TipoCifra>()">
+            </select>
+        </div>
+
+        <div class="campo">
+            <label for="operacao">Operação</label>
+
+            <select asp-for="Criptografia.Operacao"
+                    asp-items="Html.GetEnumSelectList<TipoOperacao>()">
+            </select>
+        </div>
+
+        <div class="campo">
+            <label for="texto">Texto</label>
+
+            <textarea asp-for="Criptografia.Texto"
+                      rows="6"
+                      placeholder="Digite o texto que deseja criptografar ou descriptografar...">
+            </textarea>
+        </div>
+
+        <div class="campo">
+            <label for="chave">Chave</label>
+
+            <input asp-for="Criptografia.Chave"
+                   placeholder="Digite a chave da cifra..." />
+        </div>
+
+        <button type="submit">
+            Executar
+        </button>
+
+    </form>
+
+    @if (!string.IsNullOrEmpty(Model.Criptografia.Resultado))
+    {
+        <div class="resultado">
+
+            <h2>Resultado</h2>
+
+            <textarea rows="6" readonly>@Model.Criptografia.Resultado</textarea>
+
+        </div>
+    }
+
+</div>
+```

@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>@ViewData["Title"] - Criptografias Clássicas</title>
+
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+
+<body>
+
+    <header>
+        <nav class="navbar">
+            <div class="navbar-container">
+
+                <a class="logo" asp-page="/Index">
+                    🔐 Criptografias Clássicas
+                </a>
+
+                <div class="navbar-links">
+                    <a asp-page="/Index">Início</a>
+                </div>
+
+            </div>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        @RenderBody()
+    </main>
+
+    <footer class="footer">
+        <p>Projeto de Criptografia Clássica • ASP.NET Core Razor Pages</p>
+    </footer>
+
+    @await RenderSectionAsync("Scripts", required: false)
+
+</body>
+</html>
+```
